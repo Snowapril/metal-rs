@@ -21,6 +21,14 @@ impl ComputePassDescriptorRef {
     ) -> &ComputePassSampleBufferAttachmentDescriptorArrayRef {
         unsafe { msg_send![self, sampleBufferAttachments] }
     }
+
+    pub fn dispatch_type(&self) -> MTLDispatchType {
+        unsafe { msg_send![self, dispatchType] }
+    }
+
+    pub fn set_dispatch_type(&self, dispatch_type: MTLDispatchType) {
+        unsafe { msg_send![self, setDispatchType: dispatch_type] }
+    }
 }
 
 /// See <https://developer.apple.com/documentation/metal/mtlcomputepasssamplebufferattachmentdescriptorarray>
